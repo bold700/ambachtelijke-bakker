@@ -1,6 +1,6 @@
 # Bakkerij Van Seumeren
 
-Een scrollytelling site voor een fictieve Brabantse bakkerij uit Asten, sinds 1968. Zeven hoofdstukken met scroll-scrubbed video's, een live-voorraad-blok en een smooth-scroll ervaring via Lenis.
+Een scrollytelling site voor een fictieve Utrechtse bakkerij uit Maarssen, sinds 1968. Zeven hoofdstukken met scroll-scrubbed video's, een live-voorraad-blok en een smooth-scroll ervaring via Lenis.
 
 ## Stack
 
