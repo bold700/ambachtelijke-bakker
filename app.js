@@ -211,16 +211,17 @@
         try { videos[idx].currentTime = snapT; } catch (_) {}
       }
 
-      // Scrub active video with tight lerp + velocity cap (3× real-time)
+      // Scrub active video with tight lerp + velocity cap (1× real-time)
+      // Cap = dt means the video never advances faster than its natural
+      // playback rate, no matter how fast the scroll is going.
       const v = videos[idx];
       const s = state[idx];
       const dur = v.duration || 8;
       s.target = local * Math.max(0.01, dur - 0.02);
       const delta = s.target - s.current;
       const desired = delta * 0.4;
-      const maxStep = 3 * dt;
+      const maxStep = dt;
       let step = Math.sign(desired) * Math.min(Math.abs(desired), maxStep);
-      // Snap when very close, so tiny residual scroll doesn't linger on video
       if (Math.abs(delta) < 0.01) { s.current = s.target; step = 0; }
       else s.current += step;
       if (Math.abs(s.current - (v.currentTime || 0)) > 0.02) {
