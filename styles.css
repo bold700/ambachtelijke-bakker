@@ -1382,3 +1382,124 @@ body {
 @media (max-width: 560px) {
   .foot__grid { grid-template-columns: 1fr; }
 }
+
+/* ============== SUBPAGES (feest, workshops, ...) ============== */
+.subpage { background: var(--paper); }
+
+.sub { max-width: var(--shell-max); margin: 0 auto; }
+
+.sub__hero {
+  position: relative;
+  min-height: min(80dvh, 720px);
+  display: grid;
+  align-items: center;
+  padding: clamp(110px, 16vh, 180px) var(--shell-pad) clamp(60px, 8vw, 96px);
+  color: var(--paper);
+  isolation: isolate;
+  overflow: hidden;
+}
+.sub__hero::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(70% 50% at 30% 50%, color-mix(in oklab, var(--ember) 16%, var(--ink)), var(--ink)),
+    var(--ink);
+}
+.sub__hero::after {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(10,9,8,0.2) 0%, rgba(10,9,8,0) 40%, rgba(10,9,8,0.6) 100%);
+}
+.sub__hero-inner { max-width: 900px; display: flex; flex-direction: column; gap: 20px; }
+.sub__hero .eyebrow { color: color-mix(in oklab, var(--paper) 65%, transparent); margin: 0; }
+.sub__hero .display { color: var(--paper); margin: 0; }
+.sub__hero .display em { color: var(--ember-soft); }
+.sub__lede { max-width: 52ch; font-size: 17px; line-height: 1.5; color: color-mix(in oklab, var(--paper) 82%, transparent); margin: 0; }
+
+.sub__section { padding: clamp(64px, 10vw, 120px) var(--shell-pad); }
+
+.sub__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.sub__card {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 24px;
+  padding: 28px;
+  display: flex; flex-direction: column; gap: 12px;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  box-shadow: 0 20px 40px -28px rgba(20,18,16,0.16);
+}
+.sub__card:hover { transform: translateY(-2px); box-shadow: 0 30px 60px -30px rgba(20,18,16,0.24); }
+.sub__card-kicker { font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute); }
+.sub__card h3 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+.sub__card p { color: var(--mute); font-size: 15px; line-height: 1.55; margin: 0; max-width: 40ch; }
+
+.sub__how {
+  background: var(--paper-2);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.sub__how-inner { max-width: 900px; display: flex; flex-direction: column; gap: 24px; }
+.sub__how-inner .eyebrow { margin: 0; }
+.sub__how-inner .h-display { margin: 0; }
+.sub__steps {
+  list-style: none; margin: 20px 0 0; padding: 0;
+  display: grid; gap: 4px;
+}
+.sub__steps li {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 20px;
+  padding: 18px 0;
+  border-top: 1px solid var(--rule);
+  align-items: start;
+}
+.sub__steps li:last-child { border-bottom: 1px solid var(--rule); }
+.sub__steps .mono { color: var(--mute); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding-top: 6px; }
+.sub__steps h4 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  margin: 0 0 4px;
+}
+.sub__steps p { margin: 0; color: var(--mute); font-size: 14.5px; line-height: 1.55; max-width: 52ch; }
+
+.sub__contact {
+  background: var(--ink);
+  color: var(--paper);
+}
+.sub__contact-inner { max-width: 900px; display: flex; flex-direction: column; gap: 20px; }
+.sub__contact .eyebrow { color: color-mix(in oklab, var(--paper) 60%, transparent); margin: 0; }
+.sub__contact .h-display { color: var(--paper); margin: 0; }
+.sub__contact .h-display em { color: var(--ember-soft); }
+.sub__contact .sub__lede { color: color-mix(in oklab, var(--paper) 80%, transparent); }
+.sub__actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+.sub__contact .btn--primary { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.sub__contact .btn--primary:hover { background: var(--ember); color: #fff; border-color: var(--ember); }
+.sub__contact .btn--ghost { color: var(--paper); border-color: color-mix(in oklab, var(--paper) 28%, transparent); }
+.sub__contact .btn--ghost:hover { border-color: var(--paper); background: color-mix(in oklab, var(--paper) 8%, transparent); }
+.sub__note {
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--paper) 50%, transparent);
+  margin: 16px 0 0;
+}
+
+@media (max-width: 900px) {
+  .sub__grid { grid-template-columns: 1fr; }
+}
+.dock__nav a[aria-current="page"] { color: var(--ember); opacity: 1; }
+.dock--on-dark .dock__nav a[aria-current="page"] { color: var(--ember-soft); }

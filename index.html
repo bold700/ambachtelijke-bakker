@@ -14,7 +14,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="./styles.css?v=26" />
+    <link rel="stylesheet" href="./styles.css?v=27" />
   </head>
   <body>
     <div class="grain" aria-hidden="true"></div>
@@ -30,6 +30,8 @@
       </a>
       <nav class="dock__nav" aria-label="Hoofdnavigatie">
         <a href="#today">Vandaag</a>
+        <a href="#about">Wie wij zijn</a>
+        <a href="./feest.html">Feest</a>
         <a href="#visit">Kom langs</a>
       </nav>
       <a class="btn btn--ghost dock__cta" href="mailto:hallo@vanseumeren.nl?subject=Bestelling" data-magnetic>
@@ -40,7 +42,7 @@
 
     <!-- STAGE 1 — hero + chapters 01 t/m 05. One sticky pin, 6 steps, seamless. -->
     <section class="stage" data-stage aria-label="Van einde-van-de-dag naar hoe we daar kwamen">
-      <div class="stage__track" style="--ch-count: 7;" id="top">
+      <div class="stage__track" style="--ch-count: 8;" id="top">
         <div class="stage__pin">
           <div class="stage__progress" aria-hidden="true"><span></span></div>
 
@@ -51,8 +53,9 @@
             <video class="stage__video" data-ch="2" muted playsinline preload="auto"><source src="./media/ch-02-kneden.mp4" type="video/mp4" /></video>
             <video class="stage__video" data-ch="3" muted playsinline preload="auto"><source src="./media/hearth-scrub.mp4" type="video/mp4" /></video>
             <video class="stage__video" data-ch="4" muted playsinline preload="auto"><source src="./media/ch-03-140.mp4" type="video/mp4" /></video>
-            <video class="stage__video" data-ch="5" muted playsinline preload="auto"><source src="./media/today.mp4" type="video/mp4" /></video>
-            <video class="stage__video" data-ch="6" muted playsinline preload="auto"><source src="./media/ch-06-winkel.mp4" type="video/mp4" /></video>
+            <video class="stage__video" data-ch="5" muted playsinline preload="auto"><source src="./media/ch-05-vandaag.mp4" type="video/mp4" /></video>
+            <video class="stage__video" data-ch="6" muted playsinline preload="auto"><source src="./media/today.mp4" type="video/mp4" /></video>
+            <video class="stage__video" data-ch="7" muted playsinline preload="auto"><source src="./media/ch-06-winkel.mp4" type="video/mp4" /></video>
           </div>
 
           <div class="stage__captions">
@@ -129,8 +132,19 @@
               </div>
             </div>
 
-            <!-- 05 · live voorraad -->
-            <div id="today" class="stage__caption stage__caption--full" data-ch="5">
+            <!-- 05 · wie wij zijn -->
+            <div id="about" class="stage__caption stage__caption--left" data-ch="5">
+              <div class="stage__scrim stage__scrim--left" aria-hidden="true"></div>
+              <div class="chapter__card">
+                <p class="chapter__kicker mono">wie wij zijn &nbsp;·&nbsp; jet en partner</p>
+                <span class="chapter__num" data-parallax data-parallax-speed="0.08">2</span>
+                <h2 class="chapter__title">Vier handen, één oven.</h2>
+                <p class="chapter__body">Wij zijn Jet en haar partner. We openen binnenkort een ambachtelijke bakkerij in Asten. Hier staat straks ons verhaal: waarom we dit willen, waar we vandaan komen, en wat we met deze oven voor ogen hebben.</p>
+              </div>
+            </div>
+
+            <!-- 06 · live voorraad -->
+            <div id="today" class="stage__caption stage__caption--full" data-ch="6">
               <div class="stage__scrim stage__scrim--full" aria-hidden="true"></div>
               <div class="today-card">
                 <header class="today__head">
@@ -240,8 +254,8 @@
             </div>
 
             <!-- Caption 7: Marktstraat slot, binnen dezelfde pinned frame -->
-            <!-- 06 · kom langs -->
-            <div id="visit" class="stage__caption stage__caption--left" data-ch="6">
+            <!-- 07 · kom langs -->
+            <div id="visit" class="stage__caption stage__caption--left" data-ch="7">
               <div class="stage__scrim stage__scrim--left" aria-hidden="true"></div>
               <div class="chapter__card">
                 <p class="chapter__kicker mono">kom langs &nbsp;·&nbsp; asten</p>
@@ -275,14 +289,15 @@
           <ul>
             <li><a href="#today">Vandaag in de oven</a></li>
             <li><a href="mailto:hallo@vanseumeren.nl?subject=Bestelling">Een brood opzij zetten</a></li>
-            <li><a href="#">Bestellen voor een feest</a></li>
+            <li><a href="./feest.html">Bestellen voor een feest</a></li>
             <li><a href="#">Cadeaubon</a></li>
           </ul>
         </div>
         <div>
           <h4>Bakkerij</h4>
           <ul>
-            <li><a href="#">Molen De Hoop</a></li>
+            <li><a href="#about">Wie wij zijn</a></li>
+            <li><a href="./feest.html">Feest &amp; catering</a></li>
             <li><a href="#">In de krant</a></li>
           </ul>
         </div>
