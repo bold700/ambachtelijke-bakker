@@ -202,6 +202,13 @@
         loadVideo(videos[idx]);
         if (idx + 1 < N) loadVideo(videos[idx + 1]);
         if (idx - 1 >= 0) loadVideo(videos[idx - 1]);
+        // Snap scrub state to current scroll position. Without this the
+        // chapter remembers where it left off and plays backward/forward
+        // when re-entered from a different scroll direction.
+        const snapDur = videos[idx].duration || 8;
+        const snapT = local * Math.max(0.01, snapDur - 0.02);
+        state[idx].current = state[idx].target = snapT;
+        try { videos[idx].currentTime = snapT; } catch (_) {}
       }
 
       // Scrub active video with gentle lerp + velocity cap (3× real-time)
