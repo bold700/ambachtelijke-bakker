@@ -84,10 +84,9 @@
 
   const makeScrubber = (track, video, opts = {}) => {
     if (!track || !video) return;
-    const { onProgress, maxVelocity = 12 } = opts;
-    //   maxVelocity = seconds of video per second of real time. High so the
-    //   scrub tracks scroll closely; it's only a guardrail against instant
-    //   jumps caused by scrollbar drags.
+    const { onProgress, maxVelocity = 3 } = opts;
+    //   maxVelocity = seconds of video per second of real time. 3 = gentle
+    //   cinematic scrub. Caps fast-scrolling from fast-forwarding the video.
     let duration = 8;
 
     const syncMeta = () => {
@@ -164,13 +163,17 @@
     const N = videos.length;
     if (!track || !N) return;
 
-    // Blob-preload each video (Range-less servers need this)
-    videos.forEach((v) => {
+    // Lazy blob-preload: only the active video gets loaded up front; neighbors
+    // load as the user approaches. Saves bandwidth + initial page-load time.
+    const loadVideo = (v) => {
+      if (!v || v._loaded) return;
+      v._loaded = true;
       const srcEl = v.querySelector("source");
       const url = srcEl ? new URL(srcEl.getAttribute("src"), location.href).href : v.currentSrc;
       toBlob(url).then((blobUrl) => { v.src = blobUrl; v.load(); }).catch(() => {});
-      v.pause(); try { v.currentTime = 0; } catch (_) {}
-    });
+    };
+    videos.forEach((v) => { v.pause(); try { v.currentTime = 0; } catch (_) {} });
+    loadVideo(videos[0]); // first video ready immediately
 
     // Per-video scrub state (target/current)
     const state = videos.map(() => ({ current: 0, target: 0 }));
@@ -195,15 +198,19 @@
         videos.forEach((v, i) => v.classList.toggle("is-active", i === idx));
         captions.forEach((c, i) => c.classList.toggle("is-active", i === idx));
         activeIdx = idx;
+        // Preload active + adjacent videos so the next chapter is ready
+        loadVideo(videos[idx]);
+        if (idx + 1 < N) loadVideo(videos[idx + 1]);
+        if (idx - 1 >= 0) loadVideo(videos[idx - 1]);
       }
 
-      // Scrub active video with the same lerp + cap we use for the hero
+      // Scrub active video with gentle lerp + velocity cap (3× real-time)
       const v = videos[idx];
       const s = state[idx];
       const dur = v.duration || 8;
       s.target = local * Math.max(0.01, dur - 0.02);
       const desired = (s.target - s.current) * 0.28;
-      const maxStep = 12 * dt;
+      const maxStep = 3 * dt;
       const step = Math.sign(desired) * Math.min(Math.abs(desired), maxStep);
       s.current += step;
       if (Math.abs(s.current - (v.currentTime || 0)) > 0.02) {
