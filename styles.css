@@ -39,9 +39,9 @@
 
 * { box-sizing: border-box; }
 html.lenis { height: auto; }
-html.lenis, html.lenis body { overscroll-behavior: none; }
-html.lenis body { overflow: clip; }
-.lenis.lenis-smooth { scroll-behavior: auto !important; }
+html.lenis.lenis-smooth { scroll-behavior: auto !important; }
+html.lenis.lenis-smooth, html.lenis.lenis-smooth body { overscroll-behavior: none; }
+html.lenis.lenis-smooth body { overflow: clip; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: clip; }
 html:not(.lenis) { scroll-behavior: smooth; }
