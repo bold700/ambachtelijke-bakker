@@ -40,7 +40,7 @@
 
     <!-- STAGE 1 — hero + chapters 01 t/m 05. One sticky pin, 6 steps, seamless. -->
     <section class="stage" data-stage aria-label="Van einde-van-de-dag naar hoe we daar kwamen">
-      <div class="stage__track" style="--ch-count: 7;" id="top">
+      <div class="stage__track" style="--ch-count: 8;" id="top">
         <div class="stage__pin">
           <div class="stage__progress" aria-hidden="true"><span></span></div>
 
@@ -53,6 +53,7 @@
             <video class="stage__video" data-ch="4" muted playsinline preload="auto"><source src="./media/hearth-scrub.mp4" type="video/mp4" /></video>
             <video class="stage__video" data-ch="5" muted playsinline preload="auto"><source src="./media/ch-05-vandaag.mp4" type="video/mp4" /></video>
             <video class="stage__video" data-ch="6" muted playsinline preload="auto"><source src="./media/today.mp4" type="video/mp4" /></video>
+            <video class="stage__video" data-ch="7" muted playsinline preload="auto"><source src="./media/ch-06-winkel.mp4" type="video/mp4" /></video>
           </div>
 
           <div class="stage__captions">
@@ -245,21 +246,8 @@
               </div>
             </div>
 
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STAGE 2 — Marktstraat 12 (het slotbeeld) -->
-    <section class="stage" data-stage aria-label="Kom langs">
-      <div class="stage__track" style="--ch-count: 1;" id="visit">
-        <div class="stage__pin">
-          <div class="stage__media">
-            <video class="stage__video is-active" data-ch="0" muted playsinline preload="auto"><source src="./media/ch-06-winkel.mp4" type="video/mp4" /></video>
-          </div>
-
-          <div class="stage__captions">
-            <div class="stage__caption stage__caption--left is-active" data-ch="0">
+            <!-- Caption 7: Marktstraat slot, binnen dezelfde pinned frame -->
+            <div id="visit" class="stage__caption stage__caption--left" data-ch="7">
               <div class="stage__scrim stage__scrim--left" aria-hidden="true"></div>
               <div class="chapter__card">
                 <p class="chapter__kicker mono">hoofdstuk 06 / 06 &nbsp;·&nbsp; kom langs</p>
@@ -272,6 +260,7 @@
                 </a>
               </div>
             </div>
+
           </div>
         </div>
       </div>
