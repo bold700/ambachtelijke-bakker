@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Bakkerij Van Seumeren — Asten, sinds 1968</title>
+    <meta name="description" content="Familie Van Seumeren bakt sinds 1968 elke ochtend vers brood in een houtoven aan de Marktstraat in Asten. Drie generaties. Gewoon, zoals het hoort." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles.css?v=20" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="dock" role="banner">
+      <a class="dock__brand" href="#top" aria-label="Bakkerij Van Seumeren, naar boven">
+        <svg class="dock__mark" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M6 34V10c0-2 1-3 3-3h22c2 0 3 1 3 3v24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+          <circle cx="20" cy="22" r="5.5" fill="none" stroke="currentColor" stroke-width="2.2" />
+          <path d="M6 34h28" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+        </svg>
+        <span class="dock__word">Van Seumeren</span>
+      </a>
+      <nav class="dock__nav" aria-label="Hoofdnavigatie">
+        <a href="#today">Vandaag</a>
+        <a href="#visit">Kom langs</a>
+      </nav>
+      <a class="btn btn--ghost dock__cta" href="mailto:hallo@vanseumeren.nl?subject=Bestelling" data-magnetic>
+        <span>Zet opzij</span>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </header>
+
+    <!-- STAGE 1 — hero + chapters 01 t/m 05. One sticky pin, 6 steps, seamless. -->
+    <section class="stage" data-stage aria-label="Van einde-van-de-dag naar hoe we daar kwamen">
+      <div class="stage__track" style="--ch-count: 7;" id="top">
+        <div class="stage__pin">
+          <div class="stage__progress" aria-hidden="true"><span></span></div>
+
+          <div class="stage__media">
+            <video class="stage__video is-active" data-ch="0" muted playsinline preload="auto"
+              poster="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'><rect width='16' height='9' fill='%230a0a0a'/></svg>"><source src="./media/hero.mp4" type="video/mp4" /></video>
+            <video class="stage__video" data-ch="1" muted playsinline preload="auto"><source src="./media/ch-01-kees.mp4" type="video/mp4" /></video>
+            <video class="stage__video" data-ch="2" muted playsinline preload="auto"><source src="./media/ch-02-opa.mp4" type="video/mp4" /></video>
+            <video class="stage__video" data-ch="3" muted playsinline preload="auto"><source src="./media/ch-03-140.mp4" type="video/mp4" /></video>
+            <video class="stage__video" data-ch="4" muted playsinline preload="auto"><source src="./media/hearth-scrub.mp4" type="video/mp4" /></video>
+            <video class="stage__video" data-ch="5" muted playsinline preload="auto"><source src="./media/ch-05-vandaag.mp4" type="video/mp4" /></video>
+            <video class="stage__video" data-ch="6" muted playsinline preload="auto"><source src="./media/today.mp4" type="video/mp4" /></video>
+          </div>
+
+          <div class="stage__captions">
+            <!-- Hero caption: einde-van-de-dag moment -->
+            <div class="stage__caption stage__caption--hero is-active" data-ch="0">
+              <div class="stage__scrim stage__scrim--hero" aria-hidden="true"></div>
+              <div class="hero__frame">
+                <div class="hero__head">
+                  <p class="eyebrow">Alle 140 zijn de deur uit. De oven koelt af.</p>
+                  <h1 class="display">
+                    Weer een ochtend<br />
+                    <em>goed gebakken.</em>
+                  </h1>
+                </div>
+
+                <div class="hero__foot">
+                  <p class="hero__lede">
+                    Kees heeft z'n schort opgehangen, Mieke telt de kas, Luuk veegt het meel bij elkaar. Over veertien uur gaat de oven weer aan — scrol mee om te zien hoe we daar elke dag weer terechtkomen.
+                  </p>
+                  <div class="hero__actions">
+                    <a class="btn btn--primary" href="#ch-01" data-magnetic>
+                      <span>Hoe de dag begon</span>
+                      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a class="btn btn--ghost btn--on-dark" href="mailto:hallo@vanseumeren.nl?subject=Bestelling">
+                      <span>Zet er morgen een opzij</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="stage__caption stage__caption--left" data-ch="1" id="ch-01">
+              <div class="stage__scrim stage__scrim--left" aria-hidden="true"></div>
+              <div class="chapter__card">
+                <p class="chapter__kicker mono">hoofdstuk 01 / 06</p>
+                <span class="chapter__num" data-parallax data-parallax-speed="0.08">03:45</span>
+                <h2 class="chapter__title">Kees staat op.</h2>
+                <p class="chapter__body">Geen wekker, Kees is er altijd net voor. Pantoffels aan, kraan open, licht in de keuken. Buiten is het nog pikdonker en de kachel tikt na van gisteren.</p>
+              </div>
+            </div>
+
+            <div class="stage__caption stage__caption--right" data-ch="2">
+              <div class="stage__scrim stage__scrim--right" aria-hidden="true"></div>
+              <div class="chapter__card">
+                <p class="chapter__kicker mono">hoofdstuk 02 / 06</p>
+                <span class="chapter__num" data-parallax data-parallax-speed="0.08">1968</span>
+                <h2 class="chapter__title">Opa's eerste bak.</h2>
+                <p class="chapter__body">Jan van Seumeren metselde de oven zelf, achter de schuur aan de Marktstraat. De eerste bak ging naar zeven klanten. Drie van die zeven komen nog steeds langs.</p>
+              </div>
+            </div>
+
+            <div class="stage__caption stage__caption--left" data-ch="3">
+              <div class="stage__scrim stage__scrim--left" aria-hidden="true"></div>
+              <div class="chapter__card">
+                <p class="chapter__kicker mono">hoofdstuk 03 / 06</p>
+                <span class="chapter__num" data-parallax data-parallax-speed="0.08">140</span>
+                <h2 class="chapter__title">Broden per morgen.</h2>
+                <p class="chapter__body">Meer past er niet in, minder wordt het niet. Als het laatste bruin om half acht op de plank ligt, is het aantal precies goed voor de dag. Op zaterdag een rondje extra voor de markt.</p>
+              </div>
+            </div>
+
+            <div class="stage__caption stage__caption--right" data-ch="4">
+              <div class="stage__scrim stage__scrim--right" aria-hidden="true"></div>
+              <div class="chapter__card">
+                <p class="chapter__kicker mono">hoofdstuk 04 / 06</p>
+                <span class="chapter__num" data-parallax data-parallax-speed="0.08">€3,20</span>
+                <h2 class="chapter__title">Een heel bruin.</h2>
+                <p class="chapter__body">Daar komt een gezin een halve week op door. Kees heeft de prijs sinds 2019 niet aangepast. <em>"Dan moet ik een kast verbouwen, en daar heb ik geen zin in."</em></p>
+              </div>
+            </div>
+
+            <div class="stage__caption stage__caption--left" data-ch="5" id="today-intro">
+              <div class="stage__scrim stage__scrim--left" aria-hidden="true"></div>
+              <div class="chapter__card">
+                <p class="chapter__kicker mono">hoofdstuk 05 / 06 &nbsp;·&nbsp; <span id="today-date">Do 24</span></p>
+                <span class="chapter__num chapter__num--word" data-parallax data-parallax-speed="0.08"><em>Vandaag.</em></span>
+                <h2 class="chapter__title">Wat er op de plank ligt.</h2>
+                <p class="chapter__body">Eerst het wit, dan het bruin, dan de krentenbollen. Kees werkt altijd dezelfde volgorde, al dertig jaar. Scroll door om te zien wat er nu uit de oven komt.</p>
+              </div>
+            </div>
+
+            <!-- Caption 6: live voorraad binnen dezelfde pinned frame, volle breedte -->
+            <div id="today" class="stage__caption stage__caption--full" data-ch="6">
+              <div class="stage__scrim stage__scrim--full" aria-hidden="true"></div>
+              <div class="today-card">
+                <header class="today__head">
+                  <p class="eyebrow mono"><span class="today__dot"></span>Live voorraad &nbsp;·&nbsp; <span id="today-date-live">Do 24</span> &nbsp;·&nbsp; bijgewerkt <span id="today-updated">net</span></p>
+                  <h2 class="today__title">Wat er nu nog <em>op de plank ligt.</em></h2>
+                </header>
+
+                <ul class="products" id="products">
+          <li class="product" data-product="wit"       data-total="40" data-left="28" data-min="6">
+            <div class="product__head">
+              <span class="product__name">Wit tarwebrood</span>
+              <span class="product__price mono">€2,80</span>
+            </div>
+            <div class="product__bar" aria-hidden="true"><span></span></div>
+            <div class="product__foot">
+              <span class="product__count mono"><em class="product__left">28</em> / <span class="product__total">40</span> over</span>
+              <span class="product__pill">beschikbaar</span>
+            </div>
+          </li>
+          <li class="product" data-product="bruin"     data-total="40" data-left="22" data-min="6">
+            <div class="product__head">
+              <span class="product__name">Volkoren bruin</span>
+              <span class="product__price mono">€3,20</span>
+            </div>
+            <div class="product__bar" aria-hidden="true"><span></span></div>
+            <div class="product__foot">
+              <span class="product__count mono"><em class="product__left">22</em> / <span class="product__total">40</span> over</span>
+              <span class="product__pill">beschikbaar</span>
+            </div>
+          </li>
+          <li class="product" data-product="krent"     data-total="20" data-left="14" data-min="4">
+            <div class="product__head">
+              <span class="product__name">Krentenbollen <small>(per 6)</small></span>
+              <span class="product__price mono">€6,60</span>
+            </div>
+            <div class="product__bar" aria-hidden="true"><span></span></div>
+            <div class="product__foot">
+              <span class="product__count mono"><em class="product__left">14</em> / <span class="product__total">20</span> over</span>
+              <span class="product__pill">ruim</span>
+            </div>
+          </li>
+          <li class="product" data-product="suiker"    data-total="15" data-left="7" data-min="2">
+            <div class="product__head">
+              <span class="product__name">Suikerbrood</span>
+              <span class="product__price mono">€4,50</span>
+            </div>
+            <div class="product__bar" aria-hidden="true"><span></span></div>
+            <div class="product__foot">
+              <span class="product__count mono"><em class="product__left">7</em> / <span class="product__total">15</span> over</span>
+              <span class="product__pill">beschikbaar</span>
+            </div>
+          </li>
+          <li class="product" data-product="croissant" data-total="25" data-left="20" data-min="4">
+            <div class="product__head">
+              <span class="product__name">Croissant <small>(per 2)</small></span>
+              <span class="product__price mono">€2,80</span>
+            </div>
+            <div class="product__bar" aria-hidden="true"><span></span></div>
+            <div class="product__foot">
+              <span class="product__count mono"><em class="product__left">20</em> / <span class="product__total">25</span> over</span>
+              <span class="product__pill">ruim</span>
+            </div>
+          </li>
+          <li class="product" data-product="kouign"    data-total="15" data-left="11" data-min="3">
+            <div class="product__head">
+              <span class="product__name">Kouign-amann</span>
+              <span class="product__price mono">€3,10</span>
+            </div>
+            <div class="product__bar" aria-hidden="true"><span></span></div>
+            <div class="product__foot">
+              <span class="product__count mono"><em class="product__left">11</em> / <span class="product__total">15</span> over</span>
+              <span class="product__pill">ruim</span>
+            </div>
+          </li>
+          <li class="product" data-product="boule"     data-total="10" data-left="3" data-min="1">
+            <div class="product__head">
+              <span class="product__name">Desem boule XL</span>
+              <span class="product__price mono">€5,40</span>
+            </div>
+            <div class="product__bar" aria-hidden="true"><span></span></div>
+            <div class="product__foot">
+              <span class="product__count mono"><em class="product__left">3</em> / <span class="product__total">10</span> over</span>
+              <span class="product__pill product__pill--low">nog 3</span>
+            </div>
+          </li>
+          <li class="product product--sold" data-product="rogge" data-total="12" data-left="0">
+            <div class="product__head">
+              <span class="product__name">Roggebrood</span>
+              <span class="product__price mono">€3,80</span>
+            </div>
+            <div class="product__bar" aria-hidden="true"><span></span></div>
+            <div class="product__foot">
+              <span class="product__count mono"><em class="product__left">0</em> / <span class="product__total">12</span> over</span>
+              <span class="product__pill product__pill--sold">op</span>
+            </div>
+          </li>
+        </ul>
+
+                <div class="today__cta">
+                  <a class="btn btn--primary btn--lg" href="mailto:hallo@vanseumeren.nl?subject=Bestelling" data-magnetic>
+                    <span>Bestel wat er nog is</span>
+                    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  </a>
+                  <p class="today__note">Bestellingen tot 12:30, morgen opgehaald vanaf 06:30.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 2 — Marktstraat 12 (het slotbeeld) -->
+    <section class="stage" data-stage aria-label="Kom langs">
+      <div class="stage__track" style="--ch-count: 1;" id="visit">
+        <div class="stage__pin">
+          <div class="stage__media">
+            <video class="stage__video is-active" data-ch="0" muted playsinline preload="auto"><source src="./media/hearth-scrub.mp4" type="video/mp4" /></video>
+          </div>
+
+          <div class="stage__captions">
+            <div class="stage__caption stage__caption--left is-active" data-ch="0">
+              <div class="stage__scrim stage__scrim--left" aria-hidden="true"></div>
+              <div class="chapter__card">
+                <p class="chapter__kicker mono">hoofdstuk 07 / 06 &nbsp;·&nbsp; kom langs</p>
+                <span class="chapter__num" data-parallax data-parallax-speed="0.08">12</span>
+                <h2 class="chapter__title">Marktstraat 12, Asten.</h2>
+                <p class="chapter__body">Open tussen half zeven en één, van dinsdag tot en met zondag. Maandag ligt de oven uit. Als je voor half acht binnenloopt staat de koffie nog klaar.</p>
+                <a class="link link--on-dark" href="mailto:hallo@vanseumeren.nl?subject=Bestelling">
+                  Zet een brood opzij
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="foot__grid">
+        <div class="foot__brand">
+          <svg class="foot__mark" viewBox="0 0 40 40" aria-hidden="true">
+            <path d="M6 34V10c0-2 1-3 3-3h22c2 0 3 1 3 3v24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            <circle cx="20" cy="22" r="5.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
+            <path d="M6 34h28" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+          <p class="foot__tag">Brood zoals het thuis gebakken werd. In Asten sinds 1968.</p>
+        </div>
+        <div>
+          <h4>In de winkel</h4>
+          <ul>
+            <li><a href="#today">Vandaag in de oven</a></li>
+            <li><a href="mailto:hallo@vanseumeren.nl?subject=Bestelling">Een brood opzij zetten</a></li>
+            <li><a href="#">Bestellen voor een feest</a></li>
+            <li><a href="#">Cadeaubon</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Bakkerij</h4>
+          <ul>
+            <li><a href="#">Molen De Hoop</a></li>
+            <li><a href="#">In de krant</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kom langs</h4>
+          <address>
+            Marktstraat 12<br/>
+            5721 AA Asten<br/>
+            <a href="mailto:hallo@vanseumeren.nl">hallo@vanseumeren.nl</a>
+          </address>
+        </div>
+      </div>
+      <div class="foot__bar">
+        <span>© 2026 Bakkerij Van Seumeren &nbsp;·&nbsp; KvK 17 583 291</span>
+        <span class="mono">oven: <em>aan</em></span>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+    <script src="./app.js?v=11" defer></script>
+  </body>
+</html>
