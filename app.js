@@ -17,7 +17,10 @@
       lerp: 0.2,
     });
 
-    // Route in-page anchor clicks through Lenis for smooth anchor scrolling
+    // Route in-page anchor clicks through Lenis. For stage captions (which
+    // sit position:absolute inside a sticky pin) we compute the scrollY
+    // that makes that caption active in the stage — otherwise the browser
+    // sees offsetTop=0 and goes nowhere.
     document.querySelectorAll('a[href^="#"]').forEach((a) => {
       a.addEventListener("click", (e) => {
         const id = a.getAttribute("href").slice(1);
@@ -25,6 +28,23 @@
         const t = document.getElementById(id);
         if (!t) return;
         e.preventDefault();
+
+        const cap = t.closest(".stage__caption");
+        if (cap) {
+          const stage = cap.closest("[data-stage]");
+          const track = stage?.querySelector(".stage__track");
+          const captions = stage?.querySelectorAll(".stage__caption");
+          if (track && captions) {
+            const idx = Array.from(captions).indexOf(cap);
+            const N = captions.length;
+            const total = track.offsetHeight - window.innerHeight;
+            const trackTop = track.getBoundingClientRect().top + window.scrollY;
+            // Center the caption in its slice so it's fully active on arrival
+            const target = trackTop + total * ((idx + 0.5) / N);
+            lenis.scrollTo(target, { duration: 1.4 });
+            return;
+          }
+        }
         lenis.scrollTo(t, { offset: 0, duration: 1.4 });
       });
     });
