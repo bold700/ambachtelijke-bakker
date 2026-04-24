@@ -38,6 +38,7 @@
 }
 
 * { box-sizing: border-box; }
+html { scrollbar-gutter: stable; }
 html.lenis { height: auto; }
 html.lenis.lenis-smooth { scroll-behavior: auto !important; }
 html.lenis.lenis-smooth, html.lenis.lenis-smooth body { overscroll-behavior: none; }
