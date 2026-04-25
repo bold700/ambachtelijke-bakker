@@ -398,6 +398,9 @@ body {
   display: grid;
   align-items: center;
   grid-template-columns: 1fr 1fr;
+  /* Cap content width on big screens — gutters expand symmetrically when
+     viewport > shell-max, otherwise fall back to shell-pad as min margin. */
+  padding: 0 max(var(--shell-pad), calc((100% - var(--shell-max)) / 2));
   opacity: 0;
   transition: opacity 0.6s var(--ease);
   pointer-events: none;
@@ -410,7 +413,7 @@ body {
 .stage__caption .chapter__card {
   max-width: 540px;
   justify-self: start;
-  padding: clamp(80px, 10vh, 140px) var(--shell-pad);
+  padding: clamp(80px, 10vh, 140px) 0;
   display: flex; flex-direction: column; gap: 18px;
   transform: translate3d(0, var(--drift, 0px), 0);
   will-change: transform;
@@ -615,12 +618,11 @@ body {
 }
 
 /* Hero caption: left-aligned block, vertically centered like the other captions */
-.stage__caption--hero { grid-template-columns: 1fr; padding: 0; align-content: center; }
+.stage__caption--hero { grid-template-columns: 1fr; align-content: center; }
 .stage__caption--hero .hero__frame {
   width: 100%;
-  max-width: var(--shell-max);
-  margin: 0 auto;
-  padding: 0 var(--shell-pad);
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: clamp(18px, 3vh, 32px);
@@ -826,9 +828,8 @@ body {
 .stage__caption--full .today-card {
   grid-column: 1;
   width: 100%;
-  max-width: var(--shell-max);
-  margin: 0 auto;
-  padding: clamp(96px, 12vh, 140px) var(--shell-pad) clamp(32px, 4vh, 56px);
+  margin: 0;
+  padding: clamp(96px, 12vh, 140px) 0 clamp(32px, 4vh, 56px);
   display: grid;
   gap: clamp(16px, 2.5vw, 28px);
   transform: translate3d(0, var(--drift, 0px), 0);
@@ -993,7 +994,7 @@ body {
   .today__title { font-size: clamp(26px, 7vw, 36px); }
   .today__head { gap: 8px; }
   .today__head .eyebrow { font-size: 10.5px; letter-spacing: 0.1em; }
-  .stage__caption--full .today-card { gap: 10px; padding: 60px 16px 14px; }
+  .stage__caption--full .today-card { gap: 10px; padding: 60px 0 14px; }
   /* Drop sold-out + low-stock boule on small mobile so the grid fits 3×2 */
   .product--sold { display: none; }
   .product[data-product="boule"] { display: none; }
