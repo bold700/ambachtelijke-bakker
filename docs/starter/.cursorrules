@@ -1,0 +1,135 @@
+# Scroll Stage — Cursor rules
+
+This project uses the Scroll Stage architecture: one sticky pin per scroll-section, multiple stacked videos and captions that crossfade as the user scrolls. Vanilla HTML/CSS/JS, no framework, no build step.
+
+## Stack
+
+- Vanilla HTML, CSS, JS. No React, no Vue, no bundler.
+- Lenis smooth scroll via CDN: `https://unpkg.com/lenis@1.1.14/dist/lenis.min.js`
+- Google Fonts via `<link>` in `<head>`
+- Static hosting (GitHub Pages, Vercel, Netlify)
+
+## File structure
+
+```
+index.html
+styles.css
+app.js
+media/         # mp4's, all-keyframe encoded
+docs/          # optional: SPEC.md, PROMPT.md as reference
+```
+
+Stick to this layout. No subfolders for components.
+
+## Naming conventions (BEM-ish)
+
+```
+.stage              outer scroll section
+.stage__track       scroll track (height = N × 100vh)
+.stage__pin         sticky pinned container (100dvh)
+.stage__media       stacked videos
+.stage__video       individual video (use is-active modifier)
+.stage__captions    stacked captions
+.stage__caption     individual caption
+.stage__caption--hero    full-width hero variant
+.stage__caption--left    text in left column
+.stage__caption--right   text in right column
+.stage__caption--full    full-width content (e.g. product grid)
+.stage__scrim       gradient overlay (--left, --right, --hero variants)
+
+.chapter__card      text container inside stage__caption
+.chapter__kicker    eyebrow (mono, small caps)
+.chapter__num       big display number
+.chapter__title     italic chapter title
+.chapter__body      body paragraph
+```
+
+When adding new captions, use the same naming. Do not invent new class trees.
+
+## Required CSS patterns
+
+```css
+html { scrollbar-gutter: stable; }      /* prevents horizontal page shift */
+
+.stage__track { height: calc(var(--ch-count, 1) * 100vh); }
+.stage__pin   { position: sticky; top: 0; height: 100dvh; overflow: hidden; isolation: isolate; }
+.stage__video { position: absolute; inset: 0; opacity: 0; transition: opacity 0.55s; }
+.stage__video.is-active { opacity: 1; }
+
+.stage__caption {
+  position: absolute; inset: 0;
+  display: grid; align-items: center; grid-template-columns: 1fr 1fr;
+  /* content shell on big screens, shell-pad on narrow */
+  padding: 0 max(var(--shell-pad), calc((100% - var(--shell-max)) / 2));
+  opacity: 0; transition: opacity 0.6s; pointer-events: none;
+}
+.stage__caption.is-active { opacity: 1; pointer-events: auto; }
+```
+
+Use `100dvh` not `100vh` for pinned containers (iOS Safari address bar issue).
+
+## Required JS patterns
+
+- One central `requestAnimationFrame` loop. All scroll-driven updates subscribe via a shared `subscribers` Set.
+- Lazy blob preload: only the first video loads on init. Adjacent videos load when the chapter becomes active. Never preload all videos upfront.
+- Scrub state per-chapter with snap-on-activate to prevent backward lerp on re-entry.
+- Velocity cap: `maxStep = dt` so the video plays at most 1× real-time regardless of scroll speed.
+- Anchor handler: `<a href="#caption-id">` links must compute scroll position based on caption index in stage track (not `offsetTop`, which is 0 inside a sticky pin).
+
+See app.js for reference implementation. Do not regress these behaviors.
+
+## Design tokens
+
+Always use CSS custom properties for colors, fonts, spacing. Defined in `:root`:
+
+```css
+--paper, --ink, --ember, --ember-soft   colors
+--f-display, --f-body, --f-mono         fonts
+--ease, --ease-spring, --ease-snap      easings
+--shell-max: 1360px                     content width cap
+--shell-pad: clamp(20px, 4vw, 56px)     side gutter
+```
+
+Never hardcode hex values, never hardcode pixel spacing. Always go through tokens.
+
+## Copy and content rules
+
+- **No em-dashes** (—). Use comma, period, colon.
+- **No fake history** (e.g. "since 1932" if untrue). Be honest about what the site is.
+- **Specific over abstract.** "Twelve minutes kneading" beats "lots of care".
+- **Short sentences.** Max 3 sentences per chapter body.
+- **Numbers do work.** Each chapter benefits from one specific number.
+- **First line upright, second line italic in accent.** Display headings follow this rhythm.
+
+## What not to do
+
+- Don't add scroll listeners directly. Use the rAF loop's `subscribers`.
+- Don't preload all videos at init.
+- Don't use Inter font.
+- Don't use pure black `#000`. Use off-black (`var(--ink)`).
+- Don't wrap content in extra divs unless it earns its keep.
+- Don't add a `package.json`, build tool, or framework.
+- Don't add tracking scripts or third-party widgets without asking.
+- Don't change the stage class structure.
+
+## Video encoding
+
+All chapter videos must be encoded with all-keyframes for smooth scrubbing:
+
+```bash
+ffmpeg -i input.mp4 -vf "scale=960:-2" -c:v libx264 -preset slow -crf 24 \
+  -g 1 -keyint_min 1 -sc_threshold 0 -an -movflags +faststart output.mp4
+```
+
+Target size: 3-6 MB per 8-second clip. Total media folder under 50 MB.
+
+## Performance budget
+
+- Initial JS: under 30 KB (Lenis ~10 KB + app.js ~10 KB)
+- Initial video: 1 (active video only, lazy-loaded as blob)
+- 60 fps during scroll on M1 MacBook
+- Zero horizontal layout shift (scrollbar gutter stable)
+
+## When in doubt
+
+Read `docs/SPEC.md` (if present) for the full reference. Match its patterns exactly.

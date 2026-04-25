@@ -26,7 +26,8 @@ Originele build: [Bakkerij Van Seumeren](https://bold700.github.io/ambachtelijke
 |---|---|
 | [`SPEC.md`](./SPEC.md) | Complete technische spec — architectuur, alle CSS-klassen, JS-modules |
 | [`PROMPT.md`](./PROMPT.md) | Drop-in prompt voor Claude / Cursor / Copilot om een nieuw project te scaffolden |
-| [`starter/`](./starter/) | Minimale werkende versie (HTML + CSS + JS), copy-paste klaar |
+| [`CURSOR.md`](./CURSOR.md) | Stap-voor-stap workflow om een nieuw project te bouwen in Cursor |
+| [`starter/`](./starter/) | Minimale werkende versie (HTML + CSS + JS + `.cursorrules`), copy-paste klaar |
 
 ## Kernprincipes (in één alinea)
 
