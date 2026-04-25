@@ -43,13 +43,28 @@ Eén `<section class="stage">` houdt een `position: sticky` pin van `100dvh`. Da
 
 ## Snelle start
 
+**Optie A — alleen de starter (aanbevolen):**
+
 ```bash
-# clone of download starter/
-cp -R starter/ my-new-project/
-cd my-new-project
-python3 -m http.server 4321  # of: npx serve
-open http://localhost:4321
+mkdir my-new-project && cd my-new-project
+curl -L https://github.com/bold700/ambachtelijke-bakker/archive/main.tar.gz | \
+  tar -xz --strip=2 ambachtelijke-bakker-main/docs/starter
+mv starter/{.,}* . 2>/dev/null; rmdir starter
+python3 -m http.server 4321
 ```
+
+Open <http://localhost:4321>. Je ziet de 4 placeholder-chapters direct werken.
+
+**Optie B — de hele repo klonen** (handig als je ook `SPEC.md` / `PROMPT.md` / `CURSOR.md` lokaal wil):
+
+```bash
+git clone https://github.com/bold700/ambachtelijke-bakker.git
+cp -R ambachtelijke-bakker/docs/starter my-new-project
+cd my-new-project
+python3 -m http.server 4321
+```
+
+Open in [Cursor](./CURSOR.md) voor de AI-flow, of bewerk gewoon de bestanden in je editor.
 
 ## Licentie
 
