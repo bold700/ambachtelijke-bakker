@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Scroll Stage — starter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="dock">
+      <a class="dock__brand" href="./">Brand</a>
+      <nav class="dock__nav">
+        <a href="#last">Contact</a>
+      </nav>
+    </header>
+
+    <section class="stage" data-stage>
+      <div class="stage__track" style="--ch-count: 4;" id="top">
+        <div class="stage__pin">
+          <div class="stage__media">
+            <video class="stage__video is-active" data-ch="0" muted playsinline preload="auto">
+              <source src="./media/00.mp4" type="video/mp4" />
+            </video>
+            <video class="stage__video" data-ch="1" muted playsinline preload="auto">
+              <source src="./media/01.mp4" type="video/mp4" />
+            </video>
+            <video class="stage__video" data-ch="2" muted playsinline preload="auto">
+              <source src="./media/02.mp4" type="video/mp4" />
+            </video>
+            <video class="stage__video" data-ch="3" muted playsinline preload="auto">
+              <source src="./media/03.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          <div class="stage__captions">
+            <!-- Hero -->
+            <div class="stage__caption stage__caption--hero is-active" data-ch="0">
+              <div class="stage__scrim stage__scrim--hero" aria-hidden="true"></div>
+              <div class="hero__frame">
+                <p class="eyebrow">Hier komt een korte status</p>
+                <h1 class="display">Eerste regel.<br/><em>Tweede regel italic.</em></h1>
+                <p class="lede">Eén of twee zinnen. Concreet, specifiek, geen filler. Vertel wat de site is in de hoogste 30 woorden van de scroll.</p>
+                <div class="actions">
+                  <a class="btn btn--primary" href="#last">Naar contact</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chapter 01 (left) -->
+            <div class="stage__caption stage__caption--left" data-ch="1">
+              <div class="stage__scrim stage__scrim--left" aria-hidden="true"></div>
+              <div class="chapter__card">
+                <p class="chapter__kicker mono">topic · sub-topic</p>
+                <span class="chapter__num">01</span>
+                <h2 class="chapter__title">Korte zin in italic.</h2>
+                <p class="chapter__body">Twee tot drie zinnen. Specifiek. Geen filler.</p>
+              </div>
+            </div>
+
+            <!-- Chapter 02 (right) -->
+            <div class="stage__caption stage__caption--right" data-ch="2">
+              <div class="stage__scrim stage__scrim--right" aria-hidden="true"></div>
+              <div class="chapter__card">
+                <p class="chapter__kicker mono">topic · sub-topic</p>
+                <span class="chapter__num">02</span>
+                <h2 class="chapter__title">Korte zin in italic.</h2>
+                <p class="chapter__body">Twee tot drie zinnen. Specifiek. Geen filler.</p>
+              </div>
+            </div>
+
+            <!-- Last (left, with CTA) -->
+            <div id="last" class="stage__caption stage__caption--left" data-ch="3">
+              <div class="stage__scrim stage__scrim--left" aria-hidden="true"></div>
+              <div class="chapter__card">
+                <p class="chapter__kicker mono">kom langs</p>
+                <span class="chapter__num">→</span>
+                <h2 class="chapter__title">Adres of CTA.</h2>
+                <p class="chapter__body">Korte sluitzin met openingstijden of een mailto.</p>
+                <a class="link" href="mailto:hallo@example.com">Stuur een mail</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>© 2026 · made with Scroll Stage</p>
+    </footer>
+
+    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+    <script src="./app.js" defer></script>
+  </body>
+</html>
