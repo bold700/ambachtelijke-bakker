@@ -107,28 +107,24 @@ Cursor genereert dan alle bestanden in één pass. Je kan accepteren per file of
 
 ---
 
-## 4. Video's toevoegen
+## 4. Video's swappen
 
-Drop je video's in `media/`. De starter verwacht `media/00.mp4` t/m `media/03.mp4`. Bij meer chapters: `media/04.mp4`, etc.
+De starter komt met 4 placeholder-clips (geanimeerde gradients, ~700 KB totaal) zodat de site direct draait. Voor je eigen footage: drop ruwe clips in een `raw/` folder en run het meegeleverde script:
 
-Encode elke clip met:
+```bash
+bin/encode.sh raw/*.mp4
+```
+
+Dit produceert `media/<naam>.mp4` per input — 960px breed, all-keyframes, geen audio, ~3-6MB per 8s clip.
+
+Zorg dat filenames matchen wat in `index.html` staat (`00.mp4` voor hero, `01.mp4` t/m `03.mp4` voor chapters), of pas de `<source>` paths in HTML aan.
+
+Manueel encoden:
 
 ```bash
 ffmpeg -i input.mp4 -vf "scale=960:-2" -c:v libx264 -preset slow -crf 24 \
   -g 1 -keyint_min 1 -sc_threshold 0 -an -movflags +faststart media/01.mp4
 ```
-
-Voor batch:
-
-```bash
-for f in raw/*.mp4; do
-  name=$(basename "$f")
-  ffmpeg -y -i "$f" -vf "scale=960:-2" -c:v libx264 -preset slow -crf 24 \
-    -g 1 -keyint_min 1 -sc_threshold 0 -an -movflags +faststart "media/$name"
-done
-```
-
-Of vraag Cursor om een ffmpeg-script te genereren in een `bin/encode-videos.sh`.
 
 ---
 
